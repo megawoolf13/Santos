@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alyzter Santos | Portfolio &amp; About Me</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Lora:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-brown-dark': '#2A1810',
+                        'warm-brown': '#3E2723',
+                        'warm-brown-light': '#4E342E',
+                        'cream': '#FAF6EE',
+                        'cream-card': '#FFFDF9',
+                        'terracotta': '#C85A32',
+                        'terracotta-dark': '#B04823',
+                        'warm-gold': '#D97706',
+                        'sage-accent': '#6B8E23',
+                        'coffee-text': '#2C1D11',
+                        'muted-brown': '#7C6A5A'
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #3E2723;
+            color: #2C1D11;
+            font-family: 'Outfit', sans-serif;
+            background-image: radial-gradient(#4E342E 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        html {
+            scroll-padding-top: 80px;
+        }
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2A1810;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C85A32;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D97706;
+        }
+
+        .modal-backdrop {
+            background-color: rgba(20, 10, 5, 0.75);
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-terracotta selection:text-white">
+    
+    <nav class="sticky top-0 z-40 bg-warm-brown-dark/95 backdrop-blur-md border-b border-warm-brown-light/40 shadow-lg">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#hero" class="text-cream font-serif font-bold text-lg sm:text-xl flex items-center gap-2 hover:text-warm-gold transition-colors">
+                    <span class="w-3 h-3 rounded-full bg-terracotta inline-block"></span>
+                    <span>About Me</span>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#about" class="text-cream/90 hover:text-cream hover:bg-warm-brown px-3 py-2 rounded-lg text-sm font-medium transition-all">About Me</a>
+                    <a href="#qualifications" class="text-cream/90 hover:text-cream hover:bg-warm-brown px-3 py-2 rounded-lg text-sm font-medium transition-all">Qualifications</a>
+                    <a href="#experience" class="text-cream/90 hover:text-cream hover:bg-warm-brown px-3 py-2 rounded-lg text-sm font-medium transition-all">Experience</a>
+                    <a href="#education" class="text-cream/90 hover:text-cream hover:bg-warm-brown px-3 py-2 rounded-lg text-sm font-medium transition-all">Education</a>
+                    <a href="#extracurriculars" class="text-cream/90 hover:text-cream hover:bg-warm-brown px-3 py-2 rounded-lg text-sm font-medium transition-all">Extracurriculars</a>
+                    <button onclick="toggleModal(true)" class="ml-2 bg-terracotta hover:bg-terracotta-dark text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-md transition-all transform hover:-translate-y-0.5">
+                        Contact Me
+                    </button>
+                </div>
+
+                <div class="md:hidden flex items-center gap-2">
+                    <button onclick="toggleModal(true)" class="bg-terracotta hover:bg-terracotta-dark text-white text-xs px-3 py-1.5 rounded-lg font-medium shadow">
+                        Contact
+                    </button>
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="text-cream hover:text-warm-gold p-2 rounded-md focus:outline-none" aria-label="Toggle Navigation Menu">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-warm-brown-dark border-b border-warm-brown-light px-4 pt-2 pb-4 space-y-1">
+            <a href="#about" onclick="toggleMobileMenu()" class="block text-cream/90 hover:bg-warm-brown px-3 py-2 rounded-md text-base font-medium">About Me</a>
+            <a href="#qualifications" onclick="toggleMobileMenu()" class="block text-cream/90 hover:bg-warm-brown px-3 py-2 rounded-md text-base font-medium">Qualifications</a>
+            <a href="#experience" onclick="toggleMobileMenu()" class="block text-cream/90 hover:bg-warm-brown px-3 py-2 rounded-md text-base font-medium">Experience</a>
+            <a href="#education" onclick="toggleMobileMenu()" class="block text-cream/90 hover:bg-warm-brown px-3 py-2 rounded-md text-base font-medium">Education</a>
+            <a href="#extracurriculars" onclick="toggleMobileMenu()" class="block text-cream/90 hover:bg-warm-brown px-3 py-2 rounded-md text-base font-medium">Extracurriculars</a>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-10">
+
+        <header id="hero" class="text-center pt-4 pb-2">
+            <div class="relative inline-block group">
+<img 
+    src="profile-pic.jpg"
+    alt="Alyzter Santos"
+    class="w-36 h-36 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-cream shadow-2xl mx-auto transition-transform duration-300 group-hover:scale-105">
+                
+                <div class="absolute bottom-1 right-2 bg-warm-gold text-white p-2.5 rounded-full shadow-md border-2 border-cream flex items-center justify-center">
+                    <i class="fa-solid fa-user-check text-xs"></i>
+                </div>
+            </div>
+            
+            <h1 class="mt-4 text-3xl sm:text-5xl font-serif font-bold text-cream tracking-tight">Alyzter Santos</h1>
+            <p class="mt-2 text-base sm:text-lg text-cream/80 font-light max-w-lg mx-auto">
+                Aspiring Professional &amp; Tech Enthusiast | Crafting Meaningful Solutions &amp; Continuous Learning
+            </p>
+            
+            <div class="mt-4 flex justify-center gap-3">
+                <button onclick="toggleModal(true)" class="inline-flex items-center gap-2 bg-cream text-coffee-text hover:bg-white font-medium px-5 py-2.5 rounded-full shadow-lg transition-all transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-paper-plane text-terracotta"></i>
+                    Get In Touch
+                </button>
+            </div>
+        </header>
+
+        <section id="about" class="bg-cream rounded-2xl shadow-xl overflow-hidden border border-cream/20 transform transition duration-300 hover:shadow-2xl">
+            <div class="bg-terracotta text-white px-6 py-4 flex items-center gap-3">
+                <i class="fa-solid fa-address-card text-xl"></i>
+                <h2 class="text-xl sm:text-2xl font-serif font-semibold tracking-wide">About Me</h2>
+            </div>
+
+            <div class="p-6 sm:p-8 space-y-4 text-coffee-text leading-relaxed">
+                <p class="text-base sm:text-lg">
+                    Hello! I'm <strong class="text-terracotta-dark">Alyzter</strong>, a passionate and dedicated individual with a strong foundation in problem-solving, creative collaboration, and continuous personal growth. I thrive in dynamic environments where curiosity meets strategic execution.
+                </p>
+                <p class="text-base sm:text-lg">
+                    My journey spans diverse educational and hands-on experiences, enabling me to tackle complex tasks with a balanced perspective. Whether developing projects, engaging in team activities, or learning new technologies, I am committed to learning, delivering excellence, and building warm, authentic connections.
+                </p>
+                <div class="pt-2 flex flex-wrap gap-2">
+                    <span class="bg-warm-brown/10 text-warm-brown-dark text-xs sm:text-sm font-semibold px-3 py-1 rounded-full"><i class="fa-solid fa-lightbulb text-warm-gold mr-1"></i> Problem Solver</span>
+                    <span class="bg-warm-brown/10 text-warm-brown-dark text-xs sm:text-sm font-semibold px-3 py-1 rounded-full"><i class="fa-solid fa-heart text-terracotta mr-1"></i> Passionate Learner</span>
+                    <span class="bg-warm-brown/10 text-warm-brown-dark text-xs sm:text-sm font-semibold px-3 py-1 rounded-full"><i class="fa-solid fa-users text-sage-accent mr-1"></i> Team Collaborator</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="qualifications" class="bg-cream rounded-2xl shadow-xl overflow-hidden border border-cream/20">
+            <div class="bg-warm-gold text-white px-6 py-4 flex items-center gap-3">
+                <i class="fa-solid fa-award text-xl"></i>
+                <h2 class="text-xl sm:text-2xl font-serif font-semibold tracking-wide">Qualifications &amp; Certifications</h2>
+            </div>
+            <div class="p-6 sm:p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    
+                    <div class="bg-cream-card p-4 rounded-xl border border-warm-brown/10 shadow-sm flex items-start gap-3 hover:border-warm-gold/50 transition-colors">
+                        <div class="p-2.5 bg-terracotta/15 text-terracotta rounded-lg shrink-0">
+                            <i class="fa-solid fa-certificate text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-bold text-coffee-text">TESDA NC II Certification</h3>
+                                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full bg-terracotta/10 text-terracotta border border-terracotta/20">Certified</span>
+                            </div>
+                            <p class="text-sm text-muted-brown mt-1">National Certificate II in Information &amp; Communications Technology / Computer Systems Services.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-cream-card p-4 rounded-xl border border-warm-brown/10 shadow-sm flex items-start gap-3 hover:border-warm-gold/50 transition-colors">
+                        <div class="p-2.5 bg-warm-gold/15 text-warm-gold rounded-lg shrink-0">
+                            <i class="fa-brands fa-python text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-bold text-coffee-text">Harvard CS50P</h3>
+                                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full bg-warm-gold/10 text-warm-gold border border-warm-gold/20">HarvardX</span>
+                            </div>
+                            <p class="text-sm text-muted-brown mt-1">CS50's Introduction to Programming with Python — functional programming, data structures, &amp; testing.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-cream-card p-4 rounded-xl border border-warm-brown/10 shadow-sm flex items-start gap-3 hover:border-warm-gold/50 transition-colors">
+                        <div class="p-2.5 bg-warm-gold/15 text-warm-gold rounded-lg shrink-0">
+                            <i class="fa-solid fa-robot text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-bold text-coffee-text">Harvard CS50AI</h3>
+                                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full bg-warm-gold/10 text-warm-gold border border-warm-gold/20">HarvardX</span>
+                            </div>
+                            <p class="text-sm text-muted-brown mt-1">CS50's Introduction to Artificial Intelligence with Python — search algorithms, machine learning, &amp; neural networks.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-cream-card p-4 rounded-xl border border-warm-brown/10 shadow-sm flex items-start gap-3 hover:border-warm-gold/50 transition-colors">
+                        <div class="p-2.5 bg-sage-accent/15 text-sage-accent rounded-lg shrink-0">
+                            <i class="fa-solid fa-code text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-bold text-coffee-text">Coddy C# Fundamentals</h3>
+                                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full bg-sage-accent/10 text-sage-accent border border-sage-accent/20">Coddy</span>
+                            </div>
+                            <p class="text-sm text-muted-brown mt-1">Core C# Syntax, Object-Oriented Programming (OOP) concepts, and algorithmic problem solving.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+<section id="experience" class="bg-cream rounded-2xl shadow-xl overflow-hidden border border-cream/20">
+  <div class="bg-warm-brown-light text-white px-5 py-4 sm:px-6 flex items-center gap-3 border-b border-warm-brown/10">
+    <i class="fa-solid fa-briefcase text-lg sm:text-xl shrink-0"></i>
+    <h2 class="text-lg sm:text-2xl font-serif font-semibold tracking-wide">Work &amp; Volunteer Experience</h2>
+  </div>
+
+  <div class="p-5 sm:p-6 space-y-6">
+
+    <div class="relative pl-4 sm:pl-0 border-l-2 border-terracotta/30 sm:border-l-0 space-y-1.5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-4">
+        <h3 class="text-base sm:text-lg font-bold text-coffee-text leading-snug">Animal Shelter Volunteer</h3>
+        <span class="text-[11px] sm:text-xs font-semibold px-2.5 py-0.5 sm:py-1 bg-terracotta/15 text-terracotta-dark rounded-full w-fit shrink-0">
+          2022 - Present
+        </span>
+      </div>
+      <p class="text-xs sm:text-sm font-medium text-warm-gold">Local Animal Shelter • Volunteer</p>
+      <p class="text-xs sm:text-sm text-muted-brown leading-relaxed pt-1">
+        Assisted in daily care routines, organized adoption events, and contributed to community outreach programs.
+      </p>
+    </div>
+
+    <hr class="border-t border-dashed border-warm-brown/20" />
+
+    <div class="relative pl-4 sm:pl-0 border-l-2 border-warm-brown/30 sm:border-l-0 space-y-1.5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-4">
+        <h3 class="text-base sm:text-lg font-bold text-coffee-text leading-snug">Coffee Shop Manager</h3>
+        <span class="text-[11px] sm:text-xs font-semibold px-2.5 py-0.5 sm:py-1 bg-warm-brown/10 text-warm-brown-dark rounded-full w-fit shrink-0">
+          2025 - 2025
+        </span>
+      </div>
+      <p class="text-xs sm:text-sm font-medium text-warm-gold">School fair • Full-time</p>
+      <p class="text-xs sm:text-sm text-muted-brown leading-relaxed pt-1">
+        Managed daily operations, oversaw staff scheduling, and ensured exceptional customer service.
+      </p>
+    </div>
+
+    <hr class="border-t border-dashed border-warm-brown/20" />
+
+    <div class="relative pl-4 sm:pl-0 border-l-2 border-warm-brown/30 sm:border-l-0 space-y-1.5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-4">
+        <h3 class="text-base sm:text-lg font-bold text-coffee-text leading-snug">Campus Student IT Support Specialist</h3>
+        <span class="text-[11px] sm:text-xs font-semibold px-2.5 py-0.5 sm:py-1 bg-warm-brown/10 text-warm-brown-dark rounded-full w-fit shrink-0">
+          2022 - 2026
+        </span>
+      </div>
+      <p class="text-xs sm:text-sm font-medium text-warm-gold">Campus IT Services • Part-time</p>
+      <p class="text-xs sm:text-sm text-muted-brown leading-relaxed pt-1">
+        Assisted students and faculty with computer setup, software installation, and network connection debugging across campus laboratories.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+        <section id="education" class="bg-cream rounded-2xl shadow-xl overflow-hidden border border-cream/20">
+            <div class="bg-terracotta text-white px-6 py-4 flex items-center gap-3">
+                <i class="fa-solid fa-graduation-cap text-xl"></i>
+                <h2 class="text-xl sm:text-2xl font-serif font-semibold tracking-wide">Educational Background</h2>
+            </div>
+            
+            <div class="p-6 sm:p-8 space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-cream-card p-4 rounded-xl border border-warm-brown/10">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-school text-warm-gold text-sm"></i>
+                            <h3 class="font-bold text-coffee-text">Primary Elementary School</h3>
+                        </div>
+                        <p class="text-xs text-muted-brown">Grade 1 - Grade 2 | Don Galo National Elementary School</p>
+                    </div>
+                    <div class="shrink-0">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800 border border-green-200">
+                            <span class="w-2 h-2 rounded-full bg-green-600"></span>
+                            Graduated
+                        </span>
+                    </div>
+                </div>
+
+                <hr class="border-t border-warm-brown/15 my-4" />
+
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-cream-card p-4 rounded-xl border border-warm-brown/10">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-school text-warm-gold text-sm"></i>
+                            <h3 class="font-bold text-coffee-text">Intermediate Elementary School</h3>
+                        </div>
+                        <p class="text-xs text-muted-brown">Grade 3 - Grade 6 | Sto Nino Elementary School</p>
+                    </div>
+                    <div class="shrink-0">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800 border border-green-200">
+                            <span class="w-2 h-2 rounded-full bg-green-600"></span>
+                            Graduated
+                        </span>
+                    </div>
+                </div>
+
+                <hr class="border-t border-warm-brown/15 my-4" />
+
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-cream-card p-4 rounded-xl border border-warm-brown/10">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-building-columns text-warm-gold text-sm"></i>
+                            <h3 class="font-bold text-coffee-text">Junior High School</h3>
+                        </div>
+                        <p class="text-xs text-muted-brown">Grade 7 - Grade 10 | PNHS Don Galo</p>
+                    </div>
+                    <div class="shrink-0">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800 border border-green-200">
+                            <span class="w-2 h-2 rounded-full bg-green-600"></span>
+                            Graduated
+                        </span>
+                    </div>
+                </div>
+
+                <hr class="border-t border-warm-brown/15 my-4" />
+
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-cream-card p-4 rounded-xl border border-warm-brown/10">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-scroll text-warm-gold text-sm"></i>
+                            <h3 class="font-bold text-coffee-text">Senior High School</h3>
+                        </div>
+                        <p class="text-xs text-muted-brown">CSS Strand | PNHS Don Galo</p>
+                    </div>
+                    <div class="shrink-0">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800 border border-green-200">
+                            <span class="w-2 h-2 rounded-full bg-green-600"></span>
+                            Graduated
+                        </span>
+                    </div>
+                </div>
+
+                <hr class="border-t border-warm-brown/15 my-4" />
+
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-cream-card p-4 rounded-xl border border-terracotta/30 shadow-sm">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-university text-terracotta text-sm"></i>
+                            <h3 class="font-bold text-coffee-text">College / University</h3>
+                        </div>
+                        <p class="text-xs text-muted-brown">BS in Information Technology | Adamson University</p>
+                    </div>
+                    <div class="shrink-0">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 border border-amber-300 animate-pulse">
+                            <span class="w-2 h-2 rounded-full bg-amber-600"></span>
+                            Currently Pursuing (1st Year)
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="extracurriculars" class="bg-cream rounded-2xl shadow-xl overflow-hidden border border-cream/20">
+            <div class="bg-warm-gold text-white px-6 py-4 flex items-center gap-3">
+                <i class="fa-solid fa-puzzle-piece text-xl"></i>
+                <h2 class="text-xl sm:text-2xl font-serif font-semibold tracking-wide">Extracurricular Activities</h2>
+            </div>
+            
+            <div class="p-6 sm:p-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    
+                    <div class="bg-cream-card p-4 rounded-xl border border-warm-brown/10 hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="p-2 bg-terracotta/10 text-terracotta rounded-lg"><i class="fa-solid fa-users-gear text-base"></i></span>
+                            <h3 class="font-bold text-coffee-text">Inter School Competition Representative</h3>
+                        </div>
+                        <p class="text-xs text-muted-brown leading-relaxed">
+                            Competed in a DepEd-sanctioned inter-school problem-solving competition, representing my school and showcasing analytical thinking.
+                        </p>
+                    </div>
+
+                    <div class="bg-cream-card p-4 rounded-xl border border-warm-brown/10 hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="p-2 bg-warm-gold/10 text-warm-gold rounded-lg"><i class="fa-solid fa-flask text-base"></i></span>
+                            <h3 class="font-bold text-coffee-text">Science Club Member (Senior High School)</h3>
+                        </div>
+                        <p class="text-xs text-muted-brown leading-relaxed">
+                            Helped organize science fairs, workshops, and participated in STEM-related projects and competitions.
+                        </p>
+                    </div>
+
+                    <div class="bg-cream-card p-4 rounded-xl border border-warm-brown/10 hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="p-2 bg-sage-accent/10 text-sage-accent rounded-lg"><i class="fa-solid fa-leaf text-base"></i></span>
+                            <h3 class="font-bold text-coffee-text">Eco-Volunteers Club</h3>
+                        </div>
+                        <p class="text-xs text-muted-brown leading-relaxed">
+                            Participated in community tree-planting drives, waste segregation programs, and campus recycling initiatives.
+                        </p>
+                    </div>
+
+                    <div class="bg-cream-card p-4 rounded-xl border border-warm-brown/10 hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="p-2 bg-warm-brown/10 text-warm-brown-dark rounded-lg"><i class="fa-solid fa-atom text-base"></i></span>
+                            <h3 class="font-bold text-coffee-text">Physics Society Member</h3>
+                        </div>
+                        <p class="text-xs text-muted-brown leading-relaxed">
+                            Active general member.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-warm-brown-dark text-cream/70 py-8 text-center text-sm border-t border-warm-brown-light/30 mt-12">
+        <div class="max-w-4xl mx-auto px-4 space-y-3">
+            <div class="flex justify-center gap-4 text-xs">
+                <button onclick="toggleModal(true)" class="hover:text-cream underline">Contact Info</button>
+                <a href="#hero" class="hover:text-cream underline">Back to top</a>
+            </div>
+            <p class="text-xs text-cream/50">&copy; 2026 Alyzter Santos. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden transition-opacity duration-300">
+        <div class="bg-cream w-full max-w-md rounded-2xl shadow-2xl overflow-hidden border border-cream/30 transform transition-all scale-95 duration-300" id="modal-card">
+            
+            <div class="bg-terracotta text-white px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <i class="fa-solid fa-paper-plane text-lg"></i>
+                    <h3 class="text-xl font-serif font-semibold">Contact Me</h3>
+                </div>
+                <button onclick="toggleModal(false)" class="text-white/80 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors" aria-label="Close Contact Window">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <div class="p-6 space-y-4">
+                <p class="text-xs text-muted-brown mb-2 text-center">
+                    Feel free to reach out to me directly through any of the channels below!
+                </p>
+
+            <a href="mailto:alyzterjaydensantos21@gmail.com" class="flex items-center gap-3 p-3 bg-cream-card rounded-xl border border-warm-brown/10 hover:border-terracotta hover:bg-white transition-all group">
+                <div class="w-10 h-10 rounded-lg bg-terracotta/10 text-terracotta flex items-center justify-center shrink-0 group-hover:bg-terracotta group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-envelope text-lg"></i>
+                </div>
+                <div class="overflow-hidden">
+                    <span class="text-xs text-muted-brown block font-medium">Primary / Personal Email</span>
+                    <span class="text-sm font-semibold text-coffee-text group-hover:text-terracotta truncate block">alyzterjaydensantos21@gmail.com</span>
+                </div>
+            </a>
+
+            <a href="mailto:alyzter.jayden.santos@adamson.edu.ph" class="flex items-center gap-3 p-3 bg-cream-card rounded-xl border border-warm-brown/10 hover:border-terracotta hover:bg-white transition-all group">
+                <div class="w-10 h-10 rounded-lg bg-terracotta/10 text-terracotta flex items-center justify-center shrink-0 group-hover:bg-terracotta group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-at text-lg"></i>
+                </div>
+                <div class="overflow-hidden">
+                    <span class="text-xs text-muted-brown block font-medium">Secondary / School Email</span>
+                    <span class="text-sm font-semibold text-coffee-text group-hover:text-terracotta truncate block">alyzter.jayden.santos@adamson.edu.ph</span>
+                </div>
+            </a>
+
+            <a href="tel:+639946907004" class="flex items-center gap-3 p-3 bg-cream-card rounded-xl border border-warm-brown/10 hover:border-warm-gold hover:bg-white transition-all group">
+                <div class="w-10 h-10 rounded-lg bg-warm-gold/10 text-warm-gold flex items-center justify-center shrink-0 group-hover:bg-warm-gold group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-phone text-lg"></i>
+                </div>
+                <div class="overflow-hidden">
+                    <span class="text-xs text-muted-brown block font-medium">Mobile Number</span>
+                    <span class="text-sm font-semibold text-coffee-text group-hover:text-warm-gold truncate block">+63 994 690 7004</span>
+                </div>
+            </a>
+
+            <a href="https://www.facebook.com/alyzterjayden.santos.5" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 bg-cream-card rounded-xl border border-warm-brown/10 hover:border-blue-800 hover:bg-white transition-all group">
+                <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-800 flex items-center justify-center shrink-0 group-hover:bg-blue-800 group-hover:text-white transition-colors">
+                    <i class="fa-brands fa-facebook-f text-lg"></i>
+                </div>
+                <div class="overflow-hidden">
+                    <span class="text-xs text-muted-brown block font-medium">Facebook Account</span>
+                    <span class="text-sm font-semibold text-coffee-text group-hover:text-blue-800 truncate block">facebook.com/alyzterjayden.santos.5</span>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="bg-warm-brown/5 px-6 py-3 border-t border-warm-brown/10 flex justify-end">
+            <button onclick="toggleModal(false)" class="bg-warm-brown text-cream hover:bg-warm-brown-dark px-4 py-2 rounded-lg text-xs font-semibold transition-colors">
+                Close
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+        menu.classList.toggle('hidden');
+        if (menu.classList.contains('hidden')) {
+            icon.className = 'fa-solid fa-bars text-xl';
+        } else {
+            icon.className = 'fa-solid fa-xmark text-xl';
+        }
+    }
+
+    function toggleModal(show) {
+        const modal = document.getElementById('contact-modal');
+        const card = document.getElementById('modal-card');
+        if (show) {
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                card.classList.remove('scale-95');
+                card.classList.add('scale-100');
+            }, 10);
+        } else {
+            card.classList.remove('scale-100');
+            card.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 200);
+        }
+    }
+</script>
+</body>
+</html>
